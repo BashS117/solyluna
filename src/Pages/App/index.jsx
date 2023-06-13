@@ -1,5 +1,6 @@
 import { useRoutes, BrowserRouter } from "react-router-dom"
 import Home from "../Home"
+import { PerfumesProvider } from "../../Context"
 import MyAccount from "../MyAccount"
 import MyOrder from "../MyOrder"
 import MyOrders from "../MyOrders"
@@ -26,12 +27,12 @@ const AppRoutes = () => {
 const App=()=> {
 
   return (
+    <PerfumesProvider>
     <BrowserRouter>
-        
-
         <AppRoutes/>
         <NavBar/>
     </BrowserRouter>
+    </PerfumesProvider>
      
      
   )

@@ -1,6 +1,12 @@
 import { NavLink } from "react-router-dom"
+import { useContext } from "react"
+import { PerfumesContext } from "../../Context"
 
 const NavBar =()=>{
+
+    const {count}= useContext(PerfumesContext);
+
+
     const activeStyle = 'underline underline-offset-4'
 
 
@@ -11,7 +17,7 @@ const NavBar =()=>{
                 <NavLink 
                 to='/'
                 >
-                    Shopi
+                    SOL Y LUNA
                 </NavLink>
                 </li> 
 
@@ -107,7 +113,7 @@ const NavBar =()=>{
                 </li> 
 
                 <li>
-                    CarritodeCompras 0
+                    CarritodeCompras {count}
                 </li> 
 
               
