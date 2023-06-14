@@ -11,10 +11,17 @@ const Card = (data) => {
             <figure className='relative mb-2 w-full h-4/5'>
                 <span className='absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 p-2'>{data.data.category.name}</span>
                 <img className='w-full h-full object-cover rounded-lg' src={data.data.images[0]} alt={data.data.title} />
-                <button className='absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1'
-                onClick={()=>setCount(count+1)}>
-                    +
-                </button>
+                
+                    <div className=" bg-white  rounded-full m-2 p-1 absolute top-0 right-0 flex justify-center items-center">
+                    <svg 
+                     onClick={()=>setCount(count+1)}
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-6 h-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+</svg>
+</div>
+              
+                
+
             </figure>
             <p className="flex justify-between">
                 <span className='text-sm font-light'>{data.data.title}</span>
