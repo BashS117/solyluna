@@ -13,7 +13,12 @@ export const PerfumesProvider = ({ children }) => {
 
 
     //Product Detail -Show Product
-const [productToShow, setProductToShow]=useState([]);
+const [productToShow, setProductToShow]=useState({
+    title: '',
+    price: '',
+    description: '',
+    images:[],
+});
 
     
 

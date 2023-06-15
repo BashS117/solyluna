@@ -22,7 +22,7 @@ const ProductDetail = () => {
    <figure className='px-6'>
     <img 
     className='w-full h-full rounded-lg' 
-    src={productToShow.images[0]} 
+    src={productToShow.images?productToShow.images[0]:""} 
     alt={productToShow.title} />
    </figure>
    <p className='flex flex-col p-6'>
