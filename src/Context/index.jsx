@@ -20,7 +20,13 @@ const [productToShow, setProductToShow]=useState({
     images:[],
 });
 
+
+
+    // shoping cart-add products to cart
+    const [cartProducts, setCartProducts]=useState([]);
+
     
+    console.log('cart:', cartProducts);
 
     console.log(count);
 
@@ -34,7 +40,9 @@ const [productToShow, setProductToShow]=useState({
             openProductDetail,
             closeProductDetail,
             productToShow,
-            setProductToShow
+            setProductToShow,
+            cartProducts,
+            setCartProducts,
         }}>
             {children}
         </PerfumesContext.Provider>
