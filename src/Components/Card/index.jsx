@@ -10,17 +10,22 @@ const Card = (data) => {
         openProductDetail,
         closeProductDetail,
         setProductToShow,
-        cartProducts, setCartProducts } = useContext(PerfumesContext);
+        cartProducts, setCartProducts,
+        openCheckOutSideMenu } = useContext(PerfumesContext);
 
     const showProduct = (productDetail) => {
         openProductDetail();
         setProductToShow(productDetail);
     }
 
-    const addProductsToCart=(productData)=>{
+    const addProductsToCart=(event,productData)=>{
+        event.stopPropagation();
         setCount(count + 1)
         
         setCartProducts([...cartProducts,productData])
+        openCheckOutSideMenu();
+        closeProductDetail();
+
         
     }
     
@@ -38,7 +43,7 @@ const Card = (data) => {
                 <div
                  className=" bg-white  rounded-full m-2 p-1 absolute top-0 right-0 flex justify-center items-center">
                     <svg
-                    onClick={()=>addProductsToCart(data.data)}
+                    onClick={(event)=>addProductsToCart(event,data.data)}
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>

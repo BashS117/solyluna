@@ -11,6 +11,12 @@ export const PerfumesProvider = ({ children }) => {
     const openProductDetail =()=> setisProductDetailOpen(true);
     const closeProductDetail =()=> setisProductDetailOpen(false);
 
+      //CheckOut SIDE MENU -Open/Close
+      const [isCheckOutSideMenuOpen,setisCheckOutSideMenuOpen]= useState(false);
+      const openCheckOutSideMenu =()=> setisCheckOutSideMenuOpen(true);
+      const closeCheckOutSideMenu =()=> setisCheckOutSideMenuOpen(false);
+  
+
 
     //Product Detail -Show Product
 const [productToShow, setProductToShow]=useState({
@@ -43,6 +49,10 @@ const [productToShow, setProductToShow]=useState({
             setProductToShow,
             cartProducts,
             setCartProducts,
+            isCheckOutSideMenuOpen,
+            setisCheckOutSideMenuOpen,
+            openCheckOutSideMenu,
+            closeCheckOutSideMenu
         }}>
             {children}
         </PerfumesContext.Provider>
