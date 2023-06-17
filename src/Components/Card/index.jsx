@@ -11,11 +11,13 @@ const Card = (data) => {
         closeProductDetail,
         setProductToShow,
         cartProducts, setCartProducts,
-        openCheckOutSideMenu } = useContext(PerfumesContext);
+        openCheckOutSideMenu,
+        closeCheckOutSideMenu } = useContext(PerfumesContext);
 
     const showProduct = (productDetail) => {
         openProductDetail();
         setProductToShow(productDetail);
+        closeCheckOutSideMenu()
     }
 
     const addProductsToCart=(event,productData)=>{
