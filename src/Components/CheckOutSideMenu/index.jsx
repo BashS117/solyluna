@@ -6,7 +6,13 @@ import './styles.css'
 
 const CheckOutSideMenu = () => {
 
-  const {isCheckOutSideMenuOpen,closeCheckOutSideMenu,cartProducts}=useContext(PerfumesContext);
+  const {isCheckOutSideMenuOpen,closeCheckOutSideMenu,cartProducts,setCartProducts}=useContext(PerfumesContext);
+
+  const handleDelete=(id)=>{
+    const filteredeProducts= cartProducts.filter(unproducto=>unproducto.id != id)
+    setCartProducts(filteredeProducts);
+
+  }
   
 
     return (
@@ -22,9 +28,11 @@ const CheckOutSideMenu = () => {
       {cartProducts.map(product=>(
         <OrderCard 
         key={product.id}
+        id={product.id}
         title={product.title}
         imageUrl={product.images}
         price={product.price}
+        handleDelete={handleDelete}
         />
 
 
