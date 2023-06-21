@@ -7,12 +7,22 @@ import './styles.css'
 
 const CheckOutSideMenu = () => {
 
-  const {isCheckOutSideMenuOpen,closeCheckOutSideMenu,cartProducts,setCartProducts}=useContext(PerfumesContext);
+  const {isCheckOutSideMenuOpen,closeCheckOutSideMenu,cartProducts,setCartProducts,order,setOrder}=useContext(PerfumesContext);
 
   const handleDelete=(id)=>{
     const filteredeProducts= cartProducts.filter(unproducto=>unproducto.id != id)
     setCartProducts(filteredeProducts);
 
+  }
+  const handleCheckout=()=>{
+    const orderToAdd={
+      date: "01.02.23",
+      products: cartProducts,
+      totalProducts: cartProducts.length,
+      totalPrice: totalPrice(cartProducts),
+    }
+    setOrder([...order, orderToAdd])
+    setCartProducts([])
   }
   
 
@@ -25,7 +35,7 @@ const CheckOutSideMenu = () => {
           <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       </div>
-      <div className='px-6 overflow-y-scroll'>
+      <div className='px-6 overflow-y-scroll flex-1'>
       {cartProducts.map(product=>(
         <OrderCard 
         key={product.id}
@@ -41,13 +51,18 @@ const CheckOutSideMenu = () => {
     ))}
       </div>
 
-      <div className='px-6'>
-        <p className='flex justify-between items-center'> 
+      <div className='px-6 mb-6'>
+        <p className='flex justify-between items-center mb-2'> 
           <span className='font-light'>Total:</span>
           <span className='font-medium text-2xl'>${totalPrice(cartProducts)}</span>
         </p>
-
+        <button
+      className='w-full bg-black py-3 text-white rounded-lg'
+       onClick={()=>handleCheckout()}>
+        CheckOut
+      </button>
       </div>
+   
      
     </aside>
   )

@@ -31,6 +31,9 @@ const [productToShow, setProductToShow]=useState({
     // shoping cart-add products to cart
     const [cartProducts, setCartProducts]=useState([]);
 
+    //shoppingCart - oRder
+    const [order, setOrder]=useState([]);
+
     
     console.log('cart:', cartProducts);
 
@@ -52,7 +55,9 @@ const [productToShow, setProductToShow]=useState({
             isCheckOutSideMenuOpen,
             setisCheckOutSideMenuOpen,
             openCheckOutSideMenu,
-            closeCheckOutSideMenu
+            closeCheckOutSideMenu,
+            order,
+            setOrder
         }}>
             {children}
         </PerfumesContext.Provider>
