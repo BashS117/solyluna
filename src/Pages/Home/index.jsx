@@ -5,10 +5,28 @@ import { PerfumesContext } from "../../Context"
 
 function Home() {
 
-  const {products,searchByTitle,setSearchByTitle}=useContext(PerfumesContext); 
+  const {products,searchByTitle,setSearchByTitle,filteredProducts}=useContext(PerfumesContext); 
 
+  const renderView = ()=>{
+    if(searchByTitle?.length > 0){
+      if(filteredProducts?.length>0){
+ return( filteredProducts?.map(product=>(
+        <Card key={product.id} data={product}/>
+      )))
 
-
+      }else{
+        return (
+          <div>We don't have that perfume :(</div>
+        )
+      }
+     
+    }else{
+      return( products?.map(product=>(
+        <Card key={product.id} data={product}/>
+      )))
+     
+    }
+  }
 
   return (
     <>
@@ -26,10 +44,7 @@ function Home() {
 
         <div className='grid gap-4 grid-cols-4 w-full max-w-screen-lg'>
             {
-          products?.map(product=>(
-            <Card key={product.id} 
-            data={product}/>
-          ))
+        renderView()
         } 
         </div>
       </div>

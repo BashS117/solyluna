@@ -5,15 +5,33 @@ export const PerfumesContext = createContext();
 export const PerfumesProvider = ({ children }) => {
 //Get products
 const [products,setProducts]=useState(null);
-useEffect(()=>{
+const [ filteredProducts, setFilteredProducts]=useState(null)
+ 
+
+
+
+
+
+
+
+// getProduct by Title
+  const [searchByTitle,setSearchByTitle]= useState(null)
+  console.log('search:', searchByTitle);
+
+  useEffect(()=>{
     fetch('https://api.escuelajs.co/api/v1/products')
     .then(response=> response.json())
     .then(data=> setProducts(data))
 
   }, [])
-// getProduct by Title
-  const [searchByTitle,setSearchByTitle]= useState(null)
-  console.log('search:', searchByTitle);
+
+  const filteredeProductsByTitle=(products, searchByTitle)=>{
+    return products?.filter(product=>product.title.toLowerCase().includes(searchByTitle.toLowerCase()))
+
+  }
+  useEffect(()=>{
+   if(searchByTitle) setFilteredProducts(filteredeProductsByTitle( products,searchByTitle ))
+  }, [products,searchByTitle])
 
 
 
@@ -75,7 +93,8 @@ const [productToShow, setProductToShow]=useState({
             setOrder,
             products,
             setProducts,
-            searchByTitle,setSearchByTitle
+            searchByTitle,setSearchByTitle,
+            filteredProducts
         }}>
             {children}
         </PerfumesContext.Provider>
