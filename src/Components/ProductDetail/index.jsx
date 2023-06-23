@@ -5,6 +5,7 @@ import { PerfumesContext } from '../../Context'
 const ProductDetail = () => {
 
   const {isProductDetailOpen,closeProductDetail,productToShow}=useContext(PerfumesContext);
+  
 
   return (
     <aside className={`${isProductDetailOpen? 'flex':'hidden'} flex-col fixed right-[20px] border bg-white border-black rounded-lg w-[360px] h-[calc(100vh-80px)] `}>

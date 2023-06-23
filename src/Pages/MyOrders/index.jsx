@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 const MyOrders = () => {
   const { order, setOrder } = useContext(PerfumesContext);
+  console.log(order);
 
   return (
     <div>
@@ -14,18 +15,13 @@ const MyOrders = () => {
         <h1>My Orders</h1>
       </div>
       {
-        order.map((order, index) => {
-          <Link key={index} to={`/MyOrders/${order.id}`}>
-
+        order.map((order, index) => (
+          <Link key={index} to={`/MyOrders/${index}`}>
             <OrdersCard
               totalPrice={order.totalPrice}
-              totalProduct={order.totalProducts} />
-
-
+              totalProducts={order.totalProducts} />
           </Link>
-
-
-        })
+        ))
 
 
       }
