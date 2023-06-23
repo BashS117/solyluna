@@ -11,18 +11,19 @@ const MyOrders = () => {
 
   return (
     <div>
-      <div className='relative flex w-80 items-center justify-center'>
-        <h1>My Orders</h1>
+      <div className='relative flex w-400 items-center justify-center mb-5'>
+        <h1 className='font-medium text-xl'>My Orders</h1>
+        
       </div>
       {
         order.map((order, index) => (
-          <Link key={index} to={`/MyOrders/${index}`}>
+          <Link  key={index} to={`/MyOrders/${index}`}>
             <OrdersCard
+            
               totalPrice={order.totalPrice}
               totalProducts={order.totalProducts} />
           </Link>
         ))
-
 
       }
     </div>
