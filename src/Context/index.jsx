@@ -1,8 +1,23 @@
-import { createContext,useState } from "react";
+import { createContext,useState, useEffect } from "react";
 
 export const PerfumesContext = createContext();
 
 export const PerfumesProvider = ({ children }) => {
+//Get products
+const [products,setProducts]=useState(null);
+useEffect(()=>{
+    fetch('https://api.escuelajs.co/api/v1/products')
+    .then(response=> response.json())
+    .then(data=> setProducts(data))
+
+  }, [])
+// getProduct by Title
+  const [searchByTitle,setSearchByTitle]= useState(null)
+  console.log('search:', searchByTitle);
+
+
+
+
 ////Shoping Cart-increment quantity
     const [count,setCount]=useState(0);
 
@@ -57,7 +72,10 @@ const [productToShow, setProductToShow]=useState({
             openCheckOutSideMenu,
             closeCheckOutSideMenu,
             order,
-            setOrder
+            setOrder,
+            products,
+            setProducts,
+            searchByTitle,setSearchByTitle
         }}>
             {children}
         </PerfumesContext.Provider>
