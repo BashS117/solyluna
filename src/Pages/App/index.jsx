@@ -14,7 +14,14 @@ import './App.css'
 const AppRoutes = () => {
   let caminos = useRoutes([
     {path:'/',element: <Home/>},
+    {path:'/Clothes',element: <Home/>},
+    {path:'/Electronics',element: <Home/>},
+    {path:'/Furnitures',element: <Home/>},
+    {path:'/Toys',element: <Home/>},
+    {path:'/Others',element: <Home/>},
+
     {path:'/MyAccount',element: <MyAccount/>},
+
     {path:'/MyOrder',element: <MyOrder/>},
     {path:'/MyOrders',element: <MyOrders/>},
     {path:'/MyOrders/last',element: <MyOrder/>},

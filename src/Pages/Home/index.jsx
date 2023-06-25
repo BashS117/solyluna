@@ -8,11 +8,11 @@ function Home() {
   const {products,searchByTitle,setSearchByTitle,filteredProducts}=useContext(PerfumesContext); 
 
   const renderView = ()=>{
-    if(searchByTitle?.length > 0){
-      if(filteredProducts?.length>0){
+    if(filteredProducts?.length>0){
  return( filteredProducts?.map(product=>(
         <Card key={product.id} data={product}/>
-      )))
+      ))
+      )
 
       }else{
         return (
@@ -20,12 +20,6 @@ function Home() {
         )
       }
      
-    }else{
-      return( products?.map(product=>(
-        <Card key={product.id} data={product}/>
-      )))
-     
-    }
   }
 
   return (
