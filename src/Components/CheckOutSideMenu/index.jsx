@@ -9,7 +9,7 @@ import './styles.css'
 
 const CheckOutSideMenu = () => {
 
-  const {isCheckOutSideMenuOpen,closeCheckOutSideMenu,cartProducts,setCartProducts,order,setOrder}=useContext(PerfumesContext);
+  const {isCheckOutSideMenuOpen,closeCheckOutSideMenu,cartProducts,setCartProducts,order,setOrder,setSearchByTitle}=useContext(PerfumesContext);
 
   const handleDelete=(id)=>{
     const filteredeProducts= cartProducts.filter(unproducto=>unproducto.id != id)
@@ -25,6 +25,7 @@ const CheckOutSideMenu = () => {
     }
     setOrder([...order, orderToAdd])
     setCartProducts([])
+    setSearchByTitle(null)
   }
   
 

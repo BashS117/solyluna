@@ -4,7 +4,7 @@ import { PerfumesContext } from "../../Context"
 
 const NavBar =()=>{
 
-    const {count,setSearchByCategory}= useContext(PerfumesContext);
+    const {count,setSearchByCategory,cartProducts}= useContext(PerfumesContext);
 
 
     const activeStyle = 'underline underline-offset-4'
@@ -132,7 +132,7 @@ const NavBar =()=>{
 
                 <li>
                     <div className="pr-5">    
-                        {count}
+                        {cartProducts.length}
                      </div>   
                  </li>
                     <li>
